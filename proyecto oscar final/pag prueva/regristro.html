@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+  <title>Formulario de Registro - Máquina de Coser</title>
+  <style>
+    body {
+      background-image: url('custura.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h1 {
+      color: rgba(255, 255, 255, 0.869);
+      font-size: 48px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      color: rgb(255, 255, 255);
+      font-size: 24px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenido a nuestra página de costura</h1>
+    <p>¡Descubre todo lo relacionado con la costura!</p>
+
+    <h2>Registro</h2>
+    <form action="login.php" method="POST">
+      <label for="username">Usuario:</label>
+      <input type="text" id="username" name="username" required><br><br>
+      
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      
+      <input type="submit" value="Iniciar sesión">
+  </form>
+  </div>
+</body>
+</html>

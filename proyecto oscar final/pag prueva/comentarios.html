@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Comentarios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #333333;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .comment {
+      background-color: #f9f9f9;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .comment .author {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .comment .date {
+      font-style: italic;
+      color: #888888;
+    }
+
+    .comment .content {
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Comentarios</h2>
+
+  <form id="commentForm">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
+
+    <label for="message">Mensaje:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Enviar Comentario</button>
+  </form>
+
+  <div id="comments"></div>
+
+  <script>
+    document.getElementById("commentForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Obtener los valores del formulario
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
+
+      // Crear un nuevo elemento de comentario
+      var comment = document.createElement("div");
+      comment.className = "comment";
+      comment.innerHTML = `
+        <div class="author">${name}</div>
+        <div class="date">${getCurrentDate()}</div>
+        <div class="content">${message}</div>
+      `;
+
+      // Agregar el comentario al contenedor de comentarios
+      document.getElementById("comments").appendChild(comment);
+
+      // Limpiar los campos del formulario
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("message").value = "";
+    });
+
+    function getCurrentDate() {
+      var date = new Date();
+      var options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString(undefined, options);
+    }
+  </script>
+</body>
+</html>
